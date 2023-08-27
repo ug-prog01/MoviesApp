@@ -1,13 +1,14 @@
 import express, { Router } from 'express';
 import { call } from 'function-bind';
 import serverless from 'serverless-http';
-import {connectDb, callUser} from '../sever'
+import Server from '../sever.js';
 const api = express();
 const router = express.Router();
 
 router.get('/hello', (req, res) =>{
-    connectDb()
-    callUser()
+    console.log("geting data")
+    let dbServer= new Server()
+    dbServer.callUser(res)
 }
  );
 
